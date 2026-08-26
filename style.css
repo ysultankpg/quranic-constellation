@@ -3,12 +3,12 @@ body{background:#080810;color:#e0e0ec;font-family:-apple-system,BlinkMacSystemFo
 #app{position:relative;width:100%;height:100%}
 
 /* ── Header ── */
-#header{position:absolute;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:center;gap:20px;padding:10px 20px;background:rgba(8,8,16,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
-.header-title{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.logo-icon{font-size:28px;color:#FFD700;filter:drop-shadow(0 0 8px rgba(255,215,0,.4))}
-.header-title h1{font-size:26px;font-weight:700;letter-spacing:.5px;background:linear-gradient(135deg,#FFD700,#FFA500);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 6px rgba(255,215,0,.2))}
-.tagline{font-size:11px;color:#888;margin-top:2px;letter-spacing:.5px;text-align:center}
-.header-search{position:relative;flex:0 1 240px}
+#header{position:absolute;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;gap:20px;padding:10px 20px;background:rgba(8,8,16,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+.header-title{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:12px;flex-shrink:0;pointer-events:none;z-index:1}
+.logo-icon{font-size:32px;color:#FFD700;filter:drop-shadow(0 0 10px rgba(255,215,0,.5))}
+.header-title h1{font-size:32px;font-weight:800;letter-spacing:.5px;background:linear-gradient(135deg,#FFD700,#FFA500,#FFD700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 8px rgba(255,215,0,.25));white-space:nowrap}
+.tagline{font-size:12px;color:#999;margin-top:2px;letter-spacing:.8px;text-align:center}
+.header-search{position:relative;flex:0 1 220px;z-index:2}
 #search{width:100%;padding:6px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.05);color:#e0e0ec;font-size:12px;outline:none;transition:border-color .2s}
 #search:focus{border-color:rgba(74,158,255,.4)}
 #search::placeholder{color:#555}
@@ -16,7 +16,7 @@ body{background:#080810;color:#e0e0ec;font-family:-apple-system,BlinkMacSystemFo
 .search-item{padding:8px 12px;font-size:12px;cursor:pointer;display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.04)}
 .search-item:hover{background:rgba(74,158,255,.1)}
 .search-item .s-name{color:#fff}.search-item .s-num{color:#666;font-size:11px}
-.header-controls{display:flex;gap:14px;align-items:flex-end;margin-left:auto;flex-shrink:0}
+.header-controls{display:flex;gap:14px;align-items:flex-end;margin-left:auto;flex-shrink:0;z-index:2}
 .control-group label{display:block;font-size:9px;color:#555;text-transform:uppercase;letter-spacing:.8px;margin-bottom:3px}
 .btn-group{display:flex;border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
 .ctrl-btn{background:none;border:none;color:#777;padding:5px 12px;font-size:11px;cursor:pointer;transition:all .2s}
