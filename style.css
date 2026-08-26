@@ -3,11 +3,11 @@ body{background:#080810;color:#e0e0ec;font-family:-apple-system,BlinkMacSystemFo
 #app{position:relative;width:100%;height:100%}
 
 /* ── Header ── */
-#header{position:absolute;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;gap:20px;padding:10px 20px;background:rgba(8,8,16,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+#header{position:absolute;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:center;gap:20px;padding:10px 20px;background:rgba(8,8,16,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
 .header-title{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.logo-icon{font-size:24px;color:#FFD700;filter:drop-shadow(0 0 8px rgba(255,215,0,.4))}
-.header-title h1{font-size:17px;font-weight:700;letter-spacing:-.3px;background:linear-gradient(135deg,#7EB8FF,#C794FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.tagline{font-size:10px;color:#666;margin-top:1px}
+.logo-icon{font-size:28px;color:#FFD700;filter:drop-shadow(0 0 8px rgba(255,215,0,.4))}
+.header-title h1{font-size:26px;font-weight:700;letter-spacing:.5px;background:linear-gradient(135deg,#FFD700,#FFA500);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 6px rgba(255,215,0,.2))}
+.tagline{font-size:11px;color:#888;margin-top:2px;letter-spacing:.5px;text-align:center}
 .header-search{position:relative;flex:0 1 240px}
 #search{width:100%;padding:6px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.05);color:#e0e0ec;font-size:12px;outline:none;transition:border-color .2s}
 #search:focus{border-color:rgba(74,158,255,.4)}
