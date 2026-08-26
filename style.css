@@ -1,0 +1,172 @@
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{background:#080810;color:#e0e0ec;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",system-ui,sans-serif;overflow:hidden;height:100vh;width:100vw}
+#app{position:relative;width:100%;height:100%}
+
+/* ── Header ── */
+#header{position:absolute;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;gap:20px;padding:10px 20px;background:rgba(8,8,16,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+.header-title{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-icon{font-size:24px;color:#FFD700;filter:drop-shadow(0 0 8px rgba(255,215,0,.4))}
+.header-title h1{font-size:17px;font-weight:700;letter-spacing:-.3px;background:linear-gradient(135deg,#7EB8FF,#C794FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.tagline{font-size:10px;color:#666;margin-top:1px}
+.header-search{position:relative;flex:0 1 240px}
+#search{width:100%;padding:6px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.05);color:#e0e0ec;font-size:12px;outline:none;transition:border-color .2s}
+#search:focus{border-color:rgba(74,158,255,.4)}
+#search::placeholder{color:#555}
+#search-results{position:absolute;top:100%;left:0;right:0;background:rgba(14,14,28,.96);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.08);border-radius:0 0 8px 8px;max-height:240px;overflow-y:auto;z-index:30}
+.search-item{padding:8px 12px;font-size:12px;cursor:pointer;display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.04)}
+.search-item:hover{background:rgba(74,158,255,.1)}
+.search-item .s-name{color:#fff}.search-item .s-num{color:#666;font-size:11px}
+.header-controls{display:flex;gap:14px;align-items:flex-end;margin-left:auto;flex-shrink:0}
+.control-group label{display:block;font-size:9px;color:#555;text-transform:uppercase;letter-spacing:.8px;margin-bottom:3px}
+.btn-group{display:flex;border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+.ctrl-btn{background:none;border:none;color:#777;padding:5px 12px;font-size:11px;cursor:pointer;transition:all .2s}
+.ctrl-btn.small{padding:5px 8px;font-size:10px}
+.ctrl-btn.active{background:rgba(74,158,255,.18);color:#7EB8FF}
+.ctrl-btn:hover:not(.active){color:#bbb}
+#juz-select{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:6px;color:#ccc;padding:5px 8px;font-size:11px;cursor:pointer;outline:none;min-width:100px}
+#juz-select option{background:#1a1a2e;color:#ccc}
+
+/* ── Sidebar ── */
+#sidebar{position:absolute;top:50px;left:0;bottom:36px;width:190px;z-index:15;padding:14px;overflow-y:auto;background:rgba(8,8,16,.75);backdrop-filter:blur(12px);border-right:1px solid rgba(255,255,255,.05)}
+.stat-cards{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:16px}
+.stat-card{background:rgba(255,255,255,.05);border-radius:10px;padding:10px 8px;text-align:center;border:1px solid rgba(255,255,255,.05)}
+.stat-val{font-size:20px;font-weight:700;color:#fff}
+.stat-lbl{font-size:9px;color:#777;text-transform:uppercase;letter-spacing:.5px;margin-top:3px}
+.sidebar-section{margin-bottom:18px}
+.section-label{font-size:10px;color:#666;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;font-weight:600}
+.reset-link{color:#4A9EFF;cursor:pointer;font-size:10px;text-transform:none;letter-spacing:0;font-weight:500}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:12px;color:#aaa;cursor:pointer;padding:5px 7px;border-radius:7px;transition:all .2s;margin-bottom:2px}
+.legend-item:hover{background:rgba(255,255,255,.06);color:#fff}
+.legend-item.dimmed{opacity:.25}
+.legend-item .count{margin-left:auto;font-size:11px;color:#666}
+.dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.guide-item{display:flex;align-items:center;gap:9px;font-size:11px;color:#777;margin-bottom:5px}
+.guide-dot{border-radius:50%;background:rgba(160,180,255,.5)}
+.guide-dot.big{width:12px;height:12px}
+.guide-dot.small{width:5px;height:5px}
+.guide-line{width:22px;height:1px;background:rgba(100,140,255,.3)}
+
+/* ── Canvas ── */
+#constellation{position:absolute;top:50px;left:190px;right:0;bottom:36px;cursor:crosshair}
+
+/* ── Tooltip ── */
+#tooltip{position:absolute;z-index:25;pointer-events:none;background:rgba(12,12,24,.94);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 14px;font-size:12px;line-height:1.5;min-width:180px;max-width:240px;box-shadow:0 8px 32px rgba(0,0,0,.6)}
+.t-arabic{font-size:18px;color:#FFD700;font-family:"Geeza Pro","Traditional Arabic",serif;direction:rtl;text-align:right}
+.t-name{font-size:13px;font-weight:600;color:#fff;margin:2px 0}
+.t-meaning{font-size:11px;color:#aaa;font-style:italic}
+.t-meta{color:#777;font-size:11px;margin-top:4px;display:flex;gap:8px}
+.t-theme{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;display:inline-block;margin-top:4px}
+.hidden{display:none!important}
+
+/* ══════════════════════════════════════
+   Surah Detail Modal (centered overlay)
+   ══════════════════════════════════════ */
+#surah-overlay{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;animation:fadeIn .2s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+#surah-modal{width:420px;max-width:92vw;max-height:84vh;background:rgba(14,14,28,.98);border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.6);position:relative;animation:modalIn .25s ease-out}
+@keyframes modalIn{from{opacity:0;transform:scale(.94) translateY(12px)}to{opacity:1;transform:none}}
+#surah-close{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.06);border:none;color:#888;font-size:18px;width:30px;height:30px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2}
+#surah-close:hover{background:rgba(255,255,255,.12);color:#fff}
+#surah-modal-content{padding:24px}
+
+/* Surah modal inner elements */
+.sm-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px}
+.sm-num{font-size:48px;font-weight:800;color:rgba(255,255,255,.06);line-height:1}
+.sm-arabic{font-size:30px;color:#FFD700;font-family:"Geeza Pro","Traditional Arabic",serif;direction:rtl;line-height:1.3}
+.sm-name{font-size:22px;font-weight:700;color:#fff;margin:4px 0 2px}
+.sm-meaning{font-size:13px;color:#999;font-style:italic;margin-bottom:14px}
+.sm-badge{display:inline-block;padding:4px 12px;border-radius:14px;font-size:10px;font-weight:600;margin-bottom:14px}
+.sm-divider{height:1px;background:rgba(255,255,255,.06);margin:14px 0}
+.sm-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin:12px 0}
+.sm-cell{background:rgba(255,255,255,.03);border-radius:8px;padding:10px 8px;text-align:center}
+.sm-cell .val{font-size:16px;font-weight:700;color:#ddd}
+.sm-cell .lbl{font-size:8px;color:#666;text-transform:uppercase;letter-spacing:.5px;margin-top:3px}
+.sm-actions{display:flex;gap:8px;margin-top:16px}
+.sm-btn{flex:1;padding:11px 8px;border-radius:9px;font-size:12px;font-weight:600;cursor:pointer;text-align:center;border:none;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px}
+.sm-btn-read{background:rgba(52,199,89,.1);color:#34C759;border:1px solid rgba(52,199,89,.2)}
+.sm-btn-read:hover{background:rgba(52,199,89,.2)}
+.sm-btn-listen{background:rgba(74,158,255,.1);color:#7EB8FF;border:1px solid rgba(74,158,255,.2)}
+.sm-btn-listen:hover{background:rgba(74,158,255,.2)}
+.sm-section{font-size:9px;color:#4A9EFF;text-transform:uppercase;letter-spacing:1px;margin:18px 0 8px}
+.sm-conn{display:flex;flex-direction:column;gap:5px}
+.sm-conn-link{font-size:11px;color:#ccc;padding:7px 10px;background:rgba(255,255,255,.03);border-radius:6px;cursor:pointer;border:1px solid rgba(255,255,255,.04);text-align:left;width:100%;transition:all .2s}
+.sm-conn-link:hover{background:rgba(74,158,255,.1);border-color:rgba(74,158,255,.2);color:#7EB8FF}
+
+/* Inline audio player inside surah modal */
+.sm-player{margin-top:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:12px 14px;animation:cardIn .2s ease-out}
+.sm-player-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.sm-player-title{font-size:11px;color:#7EB8FF;font-weight:600;display:flex;align-items:center;gap:6px}
+.sm-player-title .pulse-dot{width:6px;height:6px;border-radius:50%;background:#34C759;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.sm-player-close{background:none;border:none;color:#666;font-size:14px;cursor:pointer;padding:2px 6px}
+.sm-player-close:hover{color:#fff}
+.sm-reciter-row{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.sm-reciter-row label{font-size:9px;color:#555;text-transform:uppercase;letter-spacing:.5px;flex-shrink:0}
+.sm-reciter-row select{flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:6px;color:#ccc;padding:4px 8px;font-size:11px;cursor:pointer;outline:none}
+.sm-reciter-row select option{background:#1a1a2e;color:#ccc}
+.sm-player-controls{display:flex;align-items:center;gap:8px}
+.sm-p-btn{background:rgba(255,255,255,.06);border:none;color:#ccc;width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:12px;transition:all .15s}
+.sm-p-btn:hover{background:rgba(255,255,255,.12);color:#fff}
+.sm-p-btn.playing{background:rgba(74,158,255,.2);color:#7EB8FF}
+.sm-p-btn.stop-btn{font-size:10px}
+.sm-progress{flex:1;display:flex;align-items:center;gap:6px}
+.sm-progress input[type=range]{flex:1;-webkit-appearance:none;appearance:none;height:3px;border-radius:2px;background:rgba(255,255,255,.1);outline:none;cursor:pointer}
+.sm-progress input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:10px;height:10px;border-radius:50%;background:#7EB8FF;cursor:pointer}
+.sm-time{font-size:10px;color:#666;min-width:70px;text-align:right}
+
+/* Audio bar reciter select */
+.audio-reciter-select select{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:6px;color:#ccc;padding:4px 8px;font-size:11px;cursor:pointer;outline:none;max-width:180px}
+.audio-reciter-select select option{background:#1a1a2e;color:#ccc}
+
+/* ══════════════════
+   Quran Reader Modal
+   ══════════════════ */
+#reader-overlay{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;animation:fadeIn .2s}
+#reader-modal{width:92vw;max-width:800px;height:86vh;background:rgba(14,14,28,.98);border:1px solid rgba(255,255,255,.08);border-radius:16px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.6)}
+#reader-header{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0}
+#reader-title{font-size:15px;font-weight:700;color:#fff}
+#reader-close{background:rgba(255,255,255,.06);border:none;color:#888;font-size:20px;width:32px;height:32px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+#reader-close:hover{background:rgba(255,255,255,.12);color:#fff}
+
+/* Reader options bar */
+#reader-options{display:flex;align-items:center;gap:16px;padding:8px 20px;border-bottom:1px solid rgba(255,255,255,.04);flex-shrink:0;flex-wrap:wrap}
+.ro-group{display:flex;align-items:center;gap:6px}
+.ro-group label{font-size:9px;color:#555;text-transform:uppercase;letter-spacing:.6px}
+.ro-group select{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:6px;color:#ccc;padding:4px 8px;font-size:11px;cursor:pointer;outline:none}
+.ro-group select option{background:#1a1a2e;color:#ccc}
+.ro-tabs{display:flex;margin-left:auto;border:1px solid rgba(255,255,255,.06);border-radius:6px;overflow:hidden}
+.reader-tab{background:none;border:none;color:#666;padding:5px 14px;font-size:11px;cursor:pointer;transition:all .2s}
+.reader-tab.active{color:#7EB8FF;background:rgba(74,158,255,.12)}
+.reader-tab:hover:not(.active){color:#aaa}
+
+#reader-body{flex:1;overflow-y:auto;padding:20px;scroll-behavior:smooth}
+#reader-loading{text-align:center;color:#666;padding:60px 0;font-size:14px}
+.ayah-row{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.03);align-items:flex-start}
+.ayah-num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:rgba(255,215,0,.06);border:1px solid rgba(255,215,0,.12);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#FFD700}
+.ayah-text{flex:1;display:flex;flex-direction:column;gap:8px}
+.ayah-ar{font-size:22px;line-height:1.9;color:#f0f0f0;font-family:"Geeza Pro","Traditional Arabic","Amiri",serif;direction:rtl;text-align:right}
+.ayah-en{font-size:13px;line-height:1.7;color:#999}
+.reader-view-arabic .ayah-en{display:none}
+.reader-view-english .ayah-ar{display:none}
+.reader-bismillah{text-align:center;font-size:26px;color:#FFD700;font-family:"Geeza Pro","Traditional Arabic",serif;padding:16px 0 8px;direction:rtl}
+
+/* ── Audio Bar ── */
+#audio-bar{position:absolute;bottom:0;left:0;right:0;z-index:20;display:flex;align-items:center;gap:16px;padding:8px 20px;background:rgba(12,12,28,.96);backdrop-filter:blur(16px);border-top:1px solid rgba(74,158,255,.15)}
+.audio-info{display:flex;flex-direction:column;min-width:140px}
+#audio-surah-name{font-size:12px;font-weight:600;color:#fff}
+#audio-reciter{font-size:10px;color:#666}
+.audio-controls{display:flex;align-items:center;gap:8px}
+.audio-btn{background:none;border:none;color:#888;font-size:12px;cursor:pointer;padding:4px 8px;border-radius:4px;transition:color .2s}
+.audio-btn:hover{color:#fff}
+.play-btn{width:32px;height:32px;border-radius:50%;background:rgba(74,158,255,.2);color:#7EB8FF;font-size:14px;display:flex;align-items:center;justify-content:center}
+.play-btn:hover{background:rgba(74,158,255,.35)}
+.audio-progress{flex:1;display:flex;align-items:center;gap:8px}
+#audio-seek{flex:1;-webkit-appearance:none;appearance:none;height:3px;border-radius:2px;background:rgba(255,255,255,.1);outline:none;cursor:pointer}
+#audio-seek::-webkit-slider-thumb{-webkit-appearance:none;width:10px;height:10px;border-radius:50%;background:#7EB8FF;cursor:pointer}
+#audio-time{font-size:10px;color:#666;min-width:36px}
+#audio-close{font-size:16px}
+
+/* ── Info Bar ── */
+#info-bar{position:absolute;bottom:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;padding:8px 20px;font-size:10px;color:#555;background:rgba(8,8,16,.8)}
+#info-bar.pushed-up{bottom:44px}
+.info-hint{color:#444}

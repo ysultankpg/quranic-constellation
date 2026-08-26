@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quranic Constellation</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Top Header -->
+    <header id="header">
+      <div class="header-title">
+        <span class="logo-icon">&#9734;</span>
+        <div>
+          <h1>Quranic Constellation</h1>
+          <p class="tagline">An interactive galaxy of the 114 Surahs</p>
+        </div>
+      </div>
+      <div class="header-search">
+        <input type="text" id="search" placeholder="Search surah name or number..." autocomplete="off">
+        <div id="search-results" class="hidden"></div>
+      </div>
+      <div class="header-controls">
+        <div class="control-group">
+          <label>Layout</label>
+          <div class="btn-group">
+            <button class="ctrl-btn active" data-mode="mushaf">Mushaf</button>
+            <button class="ctrl-btn" data-mode="revelation">Revelation</button>
+          </div>
+        </div>
+        <div class="control-group">
+          <label>Juz</label>
+          <select id="juz-select"><option value="0">All 30 Juz</option></select>
+        </div>
+        <div class="control-group">
+          <label>Links</label>
+          <div class="btn-group">
+            <button class="ctrl-btn small active" data-conn="on">On</button>
+            <button class="ctrl-btn small" data-conn="off">Off</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Left Sidebar -->
+    <aside id="sidebar">
+      <div class="stat-cards">
+        <div class="stat-card"><div class="stat-val">114</div><div class="stat-lbl">Surahs</div></div>
+        <div class="stat-card"><div class="stat-val">6,236</div><div class="stat-lbl">Ayat</div></div>
+        <div class="stat-card"><div class="stat-val">86</div><div class="stat-lbl">Meccan</div></div>
+        <div class="stat-card"><div class="stat-val">28</div><div class="stat-lbl">Medinan</div></div>
+      </div>
+      <div class="sidebar-section">
+        <div class="section-label">Themes <span id="theme-reset" class="reset-link hidden">Reset</span></div>
+        <div id="legend"></div>
+      </div>
+      <div class="sidebar-section">
+        <div class="section-label">Guide</div>
+        <div class="guide-item"><span class="guide-dot big"></span> More verses</div>
+        <div class="guide-item"><span class="guide-dot small"></span> Fewer verses</div>
+        <div class="guide-item"><span class="guide-line"></span> Shared theme</div>
+      </div>
+    </aside>
+
+    <canvas id="constellation"></canvas>
+    <div id="tooltip" class="hidden"></div>
+
+    <!-- Surah Detail Modal (replaces old info-card + detail-panel) -->
+    <div id="surah-overlay" class="hidden">
+      <div id="surah-modal">
+        <button id="surah-close">&times;</button>
+        <div id="surah-modal-content"></div>
+      </div>
+    </div>
+
+    <!-- Quran Reader Modal -->
+    <div id="reader-overlay" class="hidden">
+      <div id="reader-modal">
+        <div id="reader-header">
+          <div id="reader-title"></div>
+          <button id="reader-close">&times;</button>
+        </div>
+        <div id="reader-options">
+          <div class="ro-group">
+            <label>Script</label>
+            <select id="script-select">
+              <option value="quran-uthmani">Uthmani</option>
+              <option value="quran-simple">Imlaei (Simple)</option>
+              <option value="quran-simple-clean">Simple (No Tashkeel)</option>
+            </select>
+          </div>
+          <div class="ro-group">
+            <label>Translation</label>
+            <select id="trans-select">
+              <option value="en.hilali">Muhsin Khan and Hilali</option>
+              <option value="en.sahih">Sahih International</option>
+              <option value="en.yusufali">Yusuf Ali</option>
+              <option value="en.pickthall">Pickthall</option>
+            </select>
+          </div>
+          <div class="ro-tabs">
+            <button class="reader-tab active" data-view="both">Both</button>
+            <button class="reader-tab" data-view="arabic">Arabic</button>
+            <button class="reader-tab" data-view="english">English</button>
+          </div>
+        </div>
+        <div id="reader-body">
+          <div id="reader-loading">Loading surah...</div>
+          <div id="reader-content" class="hidden"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio Bar -->
+    <div id="audio-bar" class="hidden">
+      <div class="audio-info">
+        <span id="audio-surah-name"></span>
+        <span id="audio-reciter-label">Mishary Rashid Alafasy</span>
+      </div>
+      <div class="audio-controls">
+        <button id="audio-prev" class="audio-btn">&#9664;&#9664;</button>
+        <button id="audio-play" class="audio-btn play-btn">&#9654;</button>
+        <button id="audio-stop" class="audio-btn">&#9632;</button>
+        <button id="audio-next" class="audio-btn">&#9654;&#9654;</button>
+      </div>
+      <div class="audio-progress">
+        <input type="range" id="audio-seek" min="0" max="100" value="0">
+        <span id="audio-time">0:00 / 0:00</span>
+      </div>
+      <div class="audio-reciter-select">
+        <select id="bar-reciter-select"></select>
+      </div>
+      <button id="audio-close" class="audio-btn">&times;</button>
+    </div>
+
+    <div id="info-bar">
+      <span id="filter-label">Showing all 114 surahs</span>
+      <span class="info-hint">Click a star to explore  |  Hover to preview  |  Click theme to filter</span>
+    </div>
+  </div>
+
+  <script src="./data.js"></script>
+  <script src="./canvas.js"></script>
+  <script src="./ui.js"></script>
+</body>
+</html>
