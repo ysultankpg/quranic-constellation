@@ -71,11 +71,11 @@ function hexA(hex,a){
 function isLightMode(){return window.matchMedia&&window.matchMedia("(prefers-color-scheme:light)").matches;}
 
 function drawFrame(){
-  var bgColor=isLightMode()?"#f0f0f5":"#080810";
+  var bgColor=isLightMode()?"#1a1030":"#080810";
   ctx.fillStyle=bgColor;ctx.fillRect(0,0,W,H);
 
   /* Background stars */
-  var starBaseColor=isLightMode()?"100,120,180":"180,200,255";
+  var starBaseColor=isLightMode()?"160,140,220":"180,200,255";
   bgStars.forEach(s=>{
     s.phase+=s.speed;
     const a=isLightMode()?(.06+Math.sin(s.phase)*.12):(.12+Math.sin(s.phase)*.3);
@@ -138,7 +138,7 @@ function drawFrame(){
     /* Label on hover/select */
     if(qc.hoveredIdx===i||qc.selectedIdx===i){
       ctx.font="600 11px -apple-system,system-ui,sans-serif";
-      ctx.fillStyle=isLightMode()?"#1d1d1f":"#fff";ctx.textAlign="center";
+      ctx.fillStyle=isLightMode()?"#f0f0f8":"#fff";ctx.textAlign="center";
       ctx.fillText((i+1)+". "+S[i][0],star.x,star.y-sz-8);
     }
   });
