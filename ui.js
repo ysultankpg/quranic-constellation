@@ -3,6 +3,20 @@
 const qc=window._qc;
 const canvas=document.getElementById("constellation");
 const tooltip=document.getElementById("tooltip");
+
+/* ── Mobile sidebar toggle ── */
+const sidebarToggle=document.getElementById("sidebar-toggle");
+const sidebar=document.getElementById("sidebar");
+if(sidebarToggle){
+  sidebarToggle.addEventListener("click",()=>{
+    sidebar.classList.toggle("open");
+    sidebarToggle.textContent=sidebar.classList.contains("open")?"✕":"☰";
+  });
+  /* Close sidebar when tapping the canvas on mobile */
+  canvas.addEventListener("click",()=>{
+    if(sidebar.classList.contains("open")){sidebar.classList.remove("open");sidebarToggle.textContent="☰";}
+  });
+}
 const surahOverlay=document.getElementById("surah-overlay");
 const surahModal=document.getElementById("surah-modal-content");
 const readerOverlay=document.getElementById("reader-overlay");
