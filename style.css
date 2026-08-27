@@ -13,14 +13,14 @@
 }
 @media(prefers-color-scheme:light){
   :root{
-    --bg:#f5f5f7;--bg-alt:rgba(255,255,255,.92);--bg-panel:rgba(245,245,247,.85);--bg-modal:rgba(255,255,255,.98);
-    --text:#1d1d1f;--text-dim:#555;--text-muted:#888;--text-faint:#aaa;
-    --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
-    --card-bg:rgba(0,0,0,.04);--card-border:rgba(0,0,0,.06);
-    --input-bg:rgba(0,0,0,.04);--input-border:rgba(0,0,0,.1);
-    --accent:#0066CC;--accent-bg:rgba(0,102,204,.1);--accent-text:#0066CC;
-    --gold:#B8860B;--canvas-bg:#f0f0f5;
-    --search-bg:rgba(255,255,255,.98);--option-bg:#fff;
+    --bg:#1a1030;--bg-alt:rgba(34,24,69,.92);--bg-panel:rgba(30,20,60,.85);--bg-modal:rgba(26,16,48,.98);
+    --text:#f0f0f8;--text-dim:#bbb;--text-muted:#888;--text-faint:#555;
+    --border:rgba(167,139,250,.12);--border-hover:rgba(167,139,250,.2);
+    --card-bg:rgba(40,28,75,.4);--card-border:rgba(167,139,250,.1);
+    --input-bg:rgba(40,28,75,.4);--input-border:rgba(167,139,250,.15);
+    --accent:#a78bfa;--accent-bg:rgba(167,139,250,.18);--accent-text:#c4b5fd;
+    --gold:#FFD700;--canvas-bg:#1a1030;
+    --search-bg:rgba(26,16,48,.96);--option-bg:#221845;
   }
 }
 
