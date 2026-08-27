@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#080810" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
   <title>Burūj al-Qur'ān — Quranic Constellation</title>
   <link rel="stylesheet" href="./style.css">
 </head>
@@ -147,5 +154,8 @@
   <script src="./data.js"></script>
   <script src="./canvas.js"></script>
   <script src="./ui.js"></script>
+  <script>
+    if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js');}
+  </script>
 </body>
 </html>
