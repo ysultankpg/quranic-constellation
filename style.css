@@ -249,7 +249,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 
   /* Modals: full-screen on mobile */
   #surah-modal{max-width:100vw;max-height:100vh;border-radius:0;width:100vw;height:100vh}
-  #surah-modal-content{padding:64px 16px 24px !important}
+  #surah-modal-content{padding:80px 16px 24px !important}
   #surah-close{display:none}
   .sm-back-row{margin-top:0}
   #reader-modal{width:100vw;max-width:100vw;height:100vh;border-radius:0}
