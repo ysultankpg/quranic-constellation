@@ -348,7 +348,7 @@ function openReader(i){
   if(sidebarToggle)sidebarToggle.classList.add("modal-open");
   /* Add back button to reader header */
   var readerTitle=document.getElementById("reader-title");
-  readerTitle.innerHTML=`<button class="sm-back-btn" id="reader-back">&#8592; Back</button><span style="color:#FFD700;margin-left:20px">${s[1]}</span> ${i+1}. ${s[0]} — ${s[6]}`;
+  readerTitle.innerHTML=`<button class="sm-back-btn" id="reader-back">&#8592; Back</button><span style="display:inline-block;width:1px;height:20px;background:rgba(255,255,255,.15);margin:0 16px;vertical-align:middle"></span><span style="color:#FFD700">${s[1]}</span> ${i+1}. ${s[0]} — ${s[6]}`;
   document.getElementById("reader-loading").textContent="Loading surah...";
   document.getElementById("reader-loading").classList.remove("hidden");
   document.getElementById("reader-content").classList.add("hidden");
