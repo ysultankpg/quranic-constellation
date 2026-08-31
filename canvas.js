@@ -89,17 +89,21 @@ function hexA(hex,a){
   return`rgba(${r},${g},${b},${a})`;
 }
 
-function isLightMode(){return window.matchMedia&&window.matchMedia("(prefers-color-scheme:light)").matches;}
+function isLightMode(){
+  if(document.documentElement.classList.contains("theme-light"))return true;
+  if(document.documentElement.classList.contains("theme-dark"))return false;
+  return window.matchMedia&&window.matchMedia("(prefers-color-scheme:light)").matches;
+}
 
 function drawFrame(){
   var bgColor=canvasBgColor||getComputedStyle(document.documentElement).getPropertyValue("--canvas-bg").trim()||"#080810";
   ctx.fillStyle=bgColor;ctx.fillRect(0,0,W,H);
 
   /* Background stars */
-  var starBaseColor=isLightMode()?"160,140,220":"180,200,255";
+  var starBaseColor=isLightMode()?"100,80,180":"180,200,255";
   bgStars.forEach(s=>{
     s.phase+=s.speed;
-    const a=isLightMode()?(.06+Math.sin(s.phase)*.12):(.12+Math.sin(s.phase)*.3);
+    const a=isLightMode()?(.15+Math.sin(s.phase)*.15):(.12+Math.sin(s.phase)*.3);
     ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,6.28);
     ctx.fillStyle=`rgba(${starBaseColor},${a})`;ctx.fill();
   });
@@ -159,7 +163,7 @@ function drawFrame(){
     /* Label on hover/select */
     if(qc.hoveredIdx===i||qc.selectedIdx===i){
       ctx.font="600 11px -apple-system,system-ui,sans-serif";
-      ctx.fillStyle=isLightMode()?"#f0f0f8":"#fff";ctx.textAlign="center";
+      ctx.fillStyle=isLightMode()?"#333":"#fff";ctx.textAlign="center";
       ctx.fillText((i+1)+". "+S[i][0],star.x,star.y-sz-8);
     }
   });
