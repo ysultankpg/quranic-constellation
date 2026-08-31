@@ -170,6 +170,8 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .ro-group select{background:var(--input-bg);border:1px solid var(--input-border);border-radius:6px;color:var(--text-dim);padding:4px 8px;font-size:11px;cursor:pointer;outline:none}
 .ro-group select option{background:var(--option-bg);color:var(--text-dim)}
 .ro-tabs{display:flex;margin-left:auto;border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.ro-font-size{margin-left:8px}
+.ro-font-size .btn-group{gap:0}
 .reader-tab{background:none;border:none;color:var(--text-muted);padding:5px 14px;font-size:11px;cursor:pointer;transition:all .2s}
 .reader-tab.active{color:var(--accent-text);background:var(--accent-bg)}
 .reader-tab:hover:not(.active){color:var(--text-dim)}

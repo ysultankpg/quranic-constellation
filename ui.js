@@ -375,6 +375,7 @@ function renderAyahs(i,ayahs){
   document.getElementById("reader-loading").classList.add("hidden");
   content.classList.remove("hidden");
   document.getElementById("reader-body").scrollTop=0;
+  if(fontLevel!==0)applyFontSize();
 }
 scriptSelect.addEventListener("change",()=>{if(currentReaderIdx>=0)fetchAndRender(currentReaderIdx);});
 transSelect.addEventListener("change",()=>{if(currentReaderIdx>=0)fetchAndRender(currentReaderIdx);});
@@ -385,6 +386,23 @@ document.querySelectorAll(".reader-tab").forEach(tab=>tab.addEventListener("clic
 }));
 document.getElementById("reader-close").addEventListener("click",()=>{readerOverlay.classList.add("hidden");currentReaderIdx=-1;});
 readerOverlay.addEventListener("click",e=>{if(e.target===readerOverlay){readerOverlay.classList.add("hidden");currentReaderIdx=-1;}});
+
+/* ── Font size controls ── */
+let fontLevel=0; /* -3 to +5, 0=default */
+const FONT_AR_BASE=22,FONT_EN_BASE=13,FONT_STEP=2;
+function applyFontSize(){
+  var arSize=FONT_AR_BASE+(fontLevel*FONT_STEP);
+  var enSize=FONT_EN_BASE+(fontLevel*FONT_STEP);
+  var body=document.getElementById("reader-body");
+  if(!body)return;
+  body.style.setProperty("--reader-ar-size",arSize+"px");
+  body.style.setProperty("--reader-en-size",enSize+"px");
+  document.querySelectorAll(".ayah-ar").forEach(function(el){el.style.fontSize=arSize+"px";});
+  document.querySelectorAll(".ayah-en").forEach(function(el){el.style.fontSize=enSize+"px";});
+}
+document.getElementById("font-increase").addEventListener("click",function(){if(fontLevel<5){fontLevel++;applyFontSize();}});
+document.getElementById("font-decrease").addEventListener("click",function(){if(fontLevel>-3){fontLevel--;applyFontSize();}});
+document.getElementById("font-reset").addEventListener("click",function(){fontLevel=0;applyFontSize();});
 
 /* ══════════════════════════
    Audio Player — bottom bar controls

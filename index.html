@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=9">
+  <link rel="stylesheet" href="./style.css?v=10">
 </head>
 <body>
   <div id="app">
@@ -121,6 +121,14 @@
             <button class="reader-tab" data-view="arabic">Arabic</button>
             <button class="reader-tab" data-view="english">English</button>
           </div>
+          <div class="ro-group ro-font-size">
+            <label>Size</label>
+            <div class="btn-group">
+              <button class="ctrl-btn small" id="font-decrease">A−</button>
+              <button class="ctrl-btn small" id="font-reset">A</button>
+              <button class="ctrl-btn small" id="font-increase">A+</button>
+            </div>
+          </div>
         </div>
         <div id="reader-body">
           <div id="reader-loading">Loading surah...</div>
@@ -157,9 +165,9 @@
     </div>
   </div>
 
-  <script src="./data.js?v=9"></script>
-  <script src="./canvas.js?v=9"></script>
-  <script src="./ui.js?v=9"></script>
+  <script src="./data.js?v=10"></script>
+  <script src="./canvas.js?v=10"></script>
+  <script src="./ui.js?v=10"></script>
   <script>
     if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js');}
   </script>
