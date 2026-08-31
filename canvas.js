@@ -7,21 +7,31 @@ window._qc={stars:[],mode:"mushaf",showConn:true,activeTheme:null,activeJuz:0,ho
 const qc=window._qc;
 
 function resize(){
-  /* Compute available size from window minus sidebar/header/footer */
+  /* Measure header + guide bar and position panels */
   dpr=window.devicePixelRatio||1;
   var isMobile=window.innerWidth<=768;
   var sidebarW=isMobile?0:(window.innerWidth<=1024?160:190);
   var header=document.getElementById("header");
   var headerH=header?header.offsetHeight:50;
+  var guideBar=document.getElementById("guide-bar");
+  var guideH=(!isMobile&&guideBar)?guideBar.offsetHeight:0;
+  var panelTop=headerH+guideH;
+
+  /* Position guide bar, sidebar, canvas below actual header */
+  if(!isMobile){
+    if(guideBar)guideBar.style.top=headerH+"px";
+    var sidebar=document.getElementById("sidebar");
+    if(sidebar)sidebar.style.top=panelTop+"px";
+    canvas.style.position="absolute";
+    canvas.style.top=panelTop+"px";
+  }
+
   if(isMobile){
-    /* On mobile, canvas is flex:1 inside #app — read its laid-out size */
     W=canvas.clientWidth||window.innerWidth;
     H=canvas.clientHeight||(window.innerHeight-headerH);
   }else{
     W=window.innerWidth-sidebarW;
-    var guideBar=document.getElementById("guide-bar");
-    var guideH=guideBar?guideBar.offsetHeight:26;
-    H=window.innerHeight-headerH-guideH-36;
+    H=window.innerHeight-panelTop-36;
   }
   if(W<200)W=200;if(H<200)H=200;
   canvas.width=W*dpr;canvas.height=H*dpr;

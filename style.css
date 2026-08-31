@@ -81,8 +81,8 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 /* Mobile caveat banner — hidden on desktop */
 #mobile-caveat{display:none;text-align:center;font-size:10px;color:var(--text-muted);padding:4px 0;background:var(--bg-alt);border-bottom:1px solid var(--border);letter-spacing:.5px;flex-shrink:0}
 
-/* Guide hint bar — full width below header */
-#guide-bar{position:absolute;top:50px;left:0;right:0;z-index:19;text-align:center;font-size:12px;color:var(--text-dim);padding:5px 0;background:var(--bg-alt);border-bottom:1px solid var(--border);letter-spacing:.3px}
+/* Guide hint bar — full width below header, positioned by JS */
+#guide-bar{position:absolute;left:0;right:0;z-index:19;text-align:center;font-size:12px;color:var(--text-dim);padding:5px 0;background:var(--bg-alt);border-bottom:1px solid var(--border);letter-spacing:.3px}
 
 #sidebar-toggle.modal-open{display:none !important}
 
