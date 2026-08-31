@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=26">
+  <link rel="stylesheet" href="./style.css?v=27">
 </head>
 <body>
   <div id="app">
@@ -60,6 +60,9 @@
         </div>
       </div>
     </header>
+
+    <!-- Guide hint bar -->
+    <div id="guide-bar">Click a star to explore  ·  Hover to preview  ·  Click theme to filter</div>
 
     <!-- Mobile caveat -->
     <div id="mobile-caveat">✦ Best viewed on laptop or desktop</div>
@@ -168,14 +171,13 @@
 
     <div id="info-bar">
       <span id="filter-label">Showing all 114 surahs</span>
-      <span class="info-guide">Click a star to explore  ·  Hover to preview  ·  Click theme to filter</span>
       <span class="info-credit">Created by — <a href="https://ysultankpg.github.io/" target="_blank" rel="noopener">Yousuf Sultan</a></span>
     </div>
   </div>
 
-  <script src="./data.js?v=26"></script>
-  <script src="./canvas.js?v=26"></script>
-  <script src="./ui.js?v=26"></script>
+  <script src="./data.js?v=27"></script>
+  <script src="./canvas.js?v=27"></script>
+  <script src="./ui.js?v=27"></script>
   <script>
     if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js');}
   </script>

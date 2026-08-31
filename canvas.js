@@ -19,7 +19,9 @@ function resize(){
     H=canvas.clientHeight||(window.innerHeight-headerH);
   }else{
     W=window.innerWidth-sidebarW;
-    H=window.innerHeight-headerH-36;
+    var guideBar=document.getElementById("guide-bar");
+    var guideH=guideBar?guideBar.offsetHeight:26;
+    H=window.innerHeight-headerH-guideH-36;
   }
   if(W<200)W=200;if(H<200)H=200;
   canvas.width=W*dpr;canvas.height=H*dpr;
