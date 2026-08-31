@@ -346,13 +346,9 @@ function openReader(i){
   currentReaderIdx=i;const s=S[i];
   /* Hide hamburger */
   if(sidebarToggle)sidebarToggle.classList.add("modal-open");
-  /* Add back button to reader header on mobile */
+  /* Add back button to reader header */
   var readerTitle=document.getElementById("reader-title");
-  if(window.innerWidth<=768){
-    readerTitle.innerHTML=`<button class="sm-back-btn" id="reader-back">&#8592; Back</button><span style="color:#FFD700;margin-left:12px">${s[1]}</span> ${s[0]}`;
-  }else{
-    readerTitle.innerHTML=`<span style="color:#FFD700;margin-right:8px">${s[1]}</span> ${i+1}. ${s[0]} — ${s[6]}`;
-  }
+  readerTitle.innerHTML=`<button class="sm-back-btn" id="reader-back">&#8592; Back to Constellation</button><span style="color:#FFD700;margin-left:12px">${s[1]}</span> ${i+1}. ${s[0]} — ${s[6]}`;
   document.getElementById("reader-loading").textContent="Loading surah...";
   document.getElementById("reader-loading").classList.remove("hidden");
   document.getElementById("reader-content").classList.add("hidden");
