@@ -454,4 +454,31 @@ function updateFilterLabel(){
   if(qc.filteredSet)p.push(qc.filteredSet.size+" matches");
   filterLabel.textContent=p.length?"Filtering: "+p.join(" + "):"Showing all 114 surahs";
 }
+
+/* ── Theme toggle (light / dark / system) ── */
+(function(){
+  var saved=localStorage.getItem("buruj-theme")||"system";
+  function applyTheme(t){
+    document.documentElement.classList.remove("theme-light","theme-dark");
+    if(t==="light")document.documentElement.classList.add("theme-light");
+    else if(t==="dark")document.documentElement.classList.add("theme-dark");
+    /* Update canvas bg */
+    var cs=getComputedStyle(document.documentElement);
+    var canvasBg=cs.getPropertyValue("--canvas-bg").trim();
+    if(window._qc&&window._qc.updateBg)window._qc.updateBg(canvasBg);
+  }
+  function setActive(t){
+    document.querySelectorAll("#theme-toggle .ctrl-btn").forEach(function(b){
+      b.classList.toggle("active",b.dataset.theme===t);
+    });
+  }
+  applyTheme(saved);setActive(saved);
+  document.querySelectorAll("#theme-toggle .ctrl-btn").forEach(function(btn){
+    btn.addEventListener("click",function(){
+      var t=btn.dataset.theme;
+      localStorage.setItem("buruj-theme",t);
+      applyTheme(t);setActive(t);
+    });
+  });
+})();
 })();

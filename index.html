@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=21">
+  <link rel="stylesheet" href="./style.css?v=22">
 </head>
 <body>
   <div id="app">
@@ -51,11 +51,22 @@
             <button class="ctrl-btn small" data-conn="off">Off</button>
           </div>
         </div>
+        <div class="control-group">
+          <label>Theme</label>
+          <div class="btn-group" id="theme-toggle">
+            <button class="ctrl-btn small" data-theme="light" title="Light">&#9728;</button>
+            <button class="ctrl-btn small" data-theme="dark" title="Dark">&#9790;</button>
+            <button class="ctrl-btn small active" data-theme="system" title="System">&#9635;</button>
+          </div>
+        </div>
       </div>
     </header>
 
     <!-- Mobile caveat -->
     <div id="mobile-caveat">✦ Best viewed on laptop or desktop</div>
+
+    <!-- Guide hint bar -->
+    <div id="guide-bar">Click a star to explore  ·  Hover to preview  ·  Click theme to filter</div>
 
     <!-- Sidebar toggle (mobile only) -->
     <button id="sidebar-toggle">&#9776;</button>
@@ -161,13 +172,13 @@
 
     <div id="info-bar">
       <span id="filter-label">Showing all 114 surahs</span>
-      <span class="info-hint">Click a star to explore  |  Hover to preview  |  Click theme to filter</span>
+      <span class="info-credit">Created by — <a href="https://ysultankpg.github.io/" target="_blank" rel="noopener">Yousuf Sultan</a></span>
     </div>
   </div>
 
-  <script src="./data.js?v=21"></script>
-  <script src="./canvas.js?v=21"></script>
-  <script src="./ui.js?v=21"></script>
+  <script src="./data.js?v=22"></script>
+  <script src="./canvas.js?v=22"></script>
+  <script src="./ui.js?v=22"></script>
   <script>
     if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js');}
   </script>

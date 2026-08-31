@@ -2,8 +2,8 @@
 (function(){
 const canvas=document.getElementById("constellation");
 const ctx=canvas.getContext("2d");
-let W=0,H=0,dpr=1,bgStars=[];
-window._qc={stars:[],mode:"mushaf",showConn:true,activeTheme:null,activeJuz:0,hoveredIdx:-1,selectedIdx:-1,filteredSet:null};
+let W=0,H=0,dpr=1,bgStars=[],canvasBgColor="";
+window._qc={stars:[],mode:"mushaf",showConn:true,activeTheme:null,activeJuz:0,hoveredIdx:-1,selectedIdx:-1,filteredSet:null,updateBg:function(c){canvasBgColor=c;}};
 const qc=window._qc;
 
 function resize(){
@@ -19,7 +19,7 @@ function resize(){
     H=canvas.clientHeight||(window.innerHeight-headerH);
   }else{
     W=window.innerWidth-sidebarW;
-    H=window.innerHeight-headerH-36;
+    H=window.innerHeight-headerH-36-28;
   }
   if(W<200)W=200;if(H<200)H=200;
   canvas.width=W*dpr;canvas.height=H*dpr;
@@ -80,7 +80,7 @@ function hexA(hex,a){
 function isLightMode(){return window.matchMedia&&window.matchMedia("(prefers-color-scheme:light)").matches;}
 
 function drawFrame(){
-  var bgColor=isLightMode()?"#1a1030":"#080810";
+  var bgColor=canvasBgColor||getComputedStyle(document.documentElement).getPropertyValue("--canvas-bg").trim()||"#080810";
   ctx.fillStyle=bgColor;ctx.fillRect(0,0,W,H);
 
   /* Background stars */
