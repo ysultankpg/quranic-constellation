@@ -214,17 +214,18 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
   .header-controls{order:2;gap:6px;justify-content:center;flex-wrap:wrap;margin-left:0;width:100%}
   .control-group label{display:none}
 
-  /* Allow scrolling on mobile */
-  body{overflow:auto !important;overflow-x:hidden !important;height:auto !important;min-height:100vh;min-height:100dvh}
-  #app{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+  /* Fill viewport exactly — no scroll, no black gap */
+  body{overflow:hidden !important;height:100vh !important;height:100dvh !important}
+  #app{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden}
+  #header{position:relative !important;flex-shrink:0}
 
   /* Sidebar: hidden off-screen by default, toggled via JS */
   #sidebar{transform:translateX(-100%);width:220px;top:0 !important;bottom:0 !important;padding-top:70px;z-index:9998;transition:transform .25s ease;position:fixed}
   #sidebar.open{transform:translateX(0)}
   #sidebar-toggle{display:flex !important;z-index:9999 !important}
 
-  /* Canvas: full width, below header */
-  #constellation{left:0 !important;right:0;position:relative !important;top:auto !important;bottom:auto !important;width:100%;min-height:65vh;z-index:1}
+  /* Canvas: fill all remaining space after header */
+  #constellation{position:relative !important;left:0 !important;top:auto !important;right:auto !important;bottom:auto !important;width:100% !important;flex:1 1 0 !important;min-height:0 !important;z-index:1}
 
   /* Audio bar: compact */
   #audio-bar{flex-wrap:wrap;gap:8px;padding:8px 12px}

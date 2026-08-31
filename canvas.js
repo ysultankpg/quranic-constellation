@@ -11,11 +11,16 @@ function resize(){
   dpr=window.devicePixelRatio||1;
   var isMobile=window.innerWidth<=768;
   var sidebarW=isMobile?0:(window.innerWidth<=1024?160:190);
-  /* Measure actual header height on mobile since it wraps */
   var header=document.getElementById("header");
   var headerH=header?header.offsetHeight:50;
-  W=window.innerWidth-sidebarW;
-  H=isMobile?Math.max(window.innerHeight-headerH-50,300):(window.innerHeight-headerH-36);
+  if(isMobile){
+    /* On mobile, canvas is flex:1 inside #app — read its laid-out size */
+    W=canvas.clientWidth||window.innerWidth;
+    H=canvas.clientHeight||(window.innerHeight-headerH);
+  }else{
+    W=window.innerWidth-sidebarW;
+    H=window.innerHeight-headerH-36;
+  }
   if(W<200)W=200;if(H<200)H=200;
   canvas.width=W*dpr;canvas.height=H*dpr;
   canvas.style.width=W+"px";canvas.style.height=H+"px";
