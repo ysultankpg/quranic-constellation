@@ -11,12 +11,15 @@ function resize(){
   dpr=window.devicePixelRatio||1;
   var isMobile=window.innerWidth<=768;
   var sidebarW=isMobile?0:(window.innerWidth<=1024?160:190);
-  var headerH=isMobile?100:50; /* header wraps on mobile */
+  /* Measure actual header height on mobile since it wraps */
+  var header=document.getElementById("header");
+  var headerH=header?header.offsetHeight:50;
   W=window.innerWidth-sidebarW;
   H=window.innerHeight-headerH-36;
   if(W<200)W=200;if(H<200)H=200;
   canvas.width=W*dpr;canvas.height=H*dpr;
   canvas.style.width=W+"px";canvas.style.height=H+"px";
+  if(isMobile){canvas.style.top=headerH+"px";}
   ctx.setTransform(dpr,0,0,dpr,0,0);
   initBg();layoutStars();
 }
