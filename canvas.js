@@ -34,8 +34,10 @@ function initBg(){
 
 function layoutStars(){
   const cx=W/2,cy=H/2;
-  /* Elliptical spiral: use nearly the full canvas, fewer turns = more spread */
-  const rx=W*0.44,ry=H*0.44;
+  /* Elliptical spiral: scale down on mobile portrait to prevent clipping */
+  var isMobile=W<768;
+  var scaleFactor=isMobile?0.36:0.44;
+  const rx=W*scaleFactor,ry=H*scaleFactor;
   const turns=5;
   const positions=S.map((_,i)=>{
     const idx=qc.mode==="mushaf"?i:S[i][3]-1;

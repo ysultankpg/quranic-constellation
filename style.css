@@ -224,7 +224,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
   #sidebar-toggle{display:flex !important;z-index:9999 !important}
 
   /* Canvas: full width, below header */
-  #constellation{left:0 !important;right:0;position:relative !important;top:auto !important;bottom:auto !important;width:100%;min-height:60vh;z-index:1}
+  #constellation{left:0 !important;right:0;position:relative !important;top:auto !important;bottom:auto !important;width:100%;min-height:65vh;z-index:1}
 
   /* Audio bar: compact */
   #audio-bar{flex-wrap:wrap;gap:8px;padding:8px 12px}
