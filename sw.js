@@ -1,5 +1,5 @@
 /* Service Worker — Burūj al-Qur'ān PWA */
-const CACHE_NAME = 'buruj-v1';
+const CACHE_NAME = 'buruj-v2';
 const ASSETS = [
   './',
   './index.html',
@@ -38,15 +38,12 @@ self.addEventListener('fetch', e => {
     return;
   }
 
-  /* Local assets — cache first, fallback to network */
+  /* Local assets — network first, fallback to cache */
   e.respondWith(
-    caches.match(e.request).then(cached => {
-      const fetched = fetch(e.request).then(response => {
-        const clone = response.clone();
-        caches.open(CACHE_NAME).then(cache => cache.put(e.request, clone));
-        return response;
-      });
-      return cached || fetched;
-    })
+    fetch(e.request).then(response => {
+      const clone = response.clone();
+      caches.open(CACHE_NAME).then(cache => cache.put(e.request, clone));
+      return response;
+    }).catch(() => caches.match(e.request))
   );
 });
