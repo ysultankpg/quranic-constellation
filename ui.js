@@ -194,7 +194,7 @@ function openSurahModal(i){
   const connIdxs=[...new Set(CONNECTIONS.filter(c=>c[0]===i||c[1]===i).map(c=>c[0]===i?c[1]:c[0]))];
 
   /* Hide hamburger when modal is open */
-  if(sidebarToggle)sidebarToggle.style.display="none";
+  if(sidebarToggle)sidebarToggle.classList.add("modal-open");
 
   let h=`<div class="sm-back-row"><button class="sm-back-btn" id="sm-back">&#8592; Back to Constellation</button></div>
 <div class="sm-header"><div class="sm-num">${i+1}</div><div class="sm-arabic">${s[1]}</div></div>
@@ -331,7 +331,7 @@ function updatePlayButtons(){
 function closeSurahModal(){
   surahOverlay.classList.add("hidden");currentModalIdx=-1;qc.selectedIdx=-1;
   /* Restore hamburger on mobile */
-  if(sidebarToggle&&window.innerWidth<=768)sidebarToggle.style.display="flex";
+  if(sidebarToggle)sidebarToggle.classList.remove("modal-open");
 }
 
 document.getElementById("surah-close").addEventListener("click",()=>{closeSurahModal();});
