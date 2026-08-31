@@ -51,6 +51,9 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 #juz-select{background:var(--input-bg);border:1px solid var(--input-border);border-radius:6px;color:var(--text-dim);padding:5px 8px;font-size:11px;cursor:pointer;outline:none;min-width:100px}
 #juz-select option{background:var(--option-bg);color:var(--text-dim)}
 
+/* Mobile caveat banner — hidden on desktop */
+#mobile-caveat{display:none;text-align:center;font-size:10px;color:var(--text-muted);padding:4px 0;background:var(--bg-alt);border-bottom:1px solid var(--border);letter-spacing:.5px;flex-shrink:0}
+
 /* Sidebar toggle (mobile) */
 #sidebar-toggle{display:none;position:fixed;bottom:48px;left:10px;z-index:9999;background:var(--accent-bg);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:50%;color:var(--accent-text);font-size:18px;width:44px;height:44px;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.5)}
 #sidebar-toggle:hover{color:var(--text);background:var(--border-hover)}
@@ -218,6 +221,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
   body{overflow:hidden !important;height:100vh !important;height:100dvh !important}
   #app{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden}
   #header{position:relative !important;flex-shrink:0}
+  #mobile-caveat{display:block}
 
   /* Sidebar: hidden off-screen by default, toggled via JS */
   #sidebar{transform:translateX(-100%);width:220px;top:0 !important;bottom:0 !important;padding-top:70px;z-index:9998;transition:transform .25s ease;position:fixed}

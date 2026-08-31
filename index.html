@@ -12,7 +12,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
   <link rel="apple-touch-icon" href="./icons/icon-192.png">
   <title>Burūj al-Qur'ān — Quranic Constellation</title>
-  <link rel="stylesheet" href="./style.css?v=6">
+  <link rel="stylesheet" href="./style.css?v=7">
 </head>
 <body>
   <div id="app">
@@ -50,6 +50,9 @@
         </div>
       </div>
     </header>
+
+    <!-- Mobile caveat -->
+    <div id="mobile-caveat">✦ Best viewed on laptop or desktop</div>
 
     <!-- Sidebar toggle (mobile only) -->
     <button id="sidebar-toggle">&#9776;</button>
@@ -152,8 +155,8 @@
   </div>
 
   <script src="./data.js"></script>
-  <script src="./canvas.js?v=6"></script>
-  <script src="./ui.js?v=6"></script>
+  <script src="./canvas.js?v=7"></script>
+  <script src="./ui.js?v=7"></script>
   <script>
     if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js');}
   </script>
