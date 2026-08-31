@@ -15,11 +15,10 @@ function resize(){
   var header=document.getElementById("header");
   var headerH=header?header.offsetHeight:50;
   W=window.innerWidth-sidebarW;
-  H=window.innerHeight-headerH-36;
+  H=isMobile?Math.max(window.innerHeight-headerH-50,300):(window.innerHeight-headerH-36);
   if(W<200)W=200;if(H<200)H=200;
   canvas.width=W*dpr;canvas.height=H*dpr;
   canvas.style.width=W+"px";canvas.style.height=H+"px";
-  if(isMobile){canvas.style.top=headerH+"px";}
   ctx.setTransform(dpr,0,0,dpr,0,0);
   initBg();layoutStars();
 }
