@@ -399,6 +399,14 @@ document.querySelectorAll(".reader-tab").forEach(tab=>tab.addEventListener("clic
 document.getElementById("reader-close").addEventListener("click",()=>{closeReader();});
 readerOverlay.addEventListener("click",e=>{if(e.target===readerOverlay){closeReader();}});
 
+/* ── ESC key closes modals ── */
+document.addEventListener("keydown",function(e){
+  if(e.key==="Escape"){
+    if(currentReaderIdx>=0){closeReader();return;}
+    if(currentModalIdx>=0){closeSurahModal();return;}
+  }
+});
+
 /* ── Font size controls ── */
 let fontLevel=0; /* -3 to +5, 0=default */
 const FONT_AR_BASE=22,FONT_EN_BASE=13,FONT_STEP=2;
