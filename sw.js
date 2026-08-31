@@ -1,5 +1,5 @@
 /* Service Worker — Burūj al-Qur'ān PWA */
-const CACHE_NAME = 'buruj-v10';
+const CACHE_NAME = 'buruj-v11';
 const ASSETS = [
   './',
   './index.html',
