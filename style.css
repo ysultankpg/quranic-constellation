@@ -52,7 +52,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 #juz-select option{background:var(--option-bg);color:var(--text-dim)}
 
 /* Sidebar toggle (mobile) */
-#sidebar-toggle{display:none;position:absolute;top:56px;left:8px;z-index:16;background:var(--bg-alt);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:8px;color:var(--text-dim);font-size:18px;width:34px;height:34px;cursor:pointer;align-items:center;justify-content:center}
+#sidebar-toggle{display:none;position:fixed;bottom:48px;left:10px;z-index:30;background:var(--accent-bg);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:50%;color:var(--accent-text);font-size:18px;width:40px;height:40px;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.3)}
 #sidebar-toggle:hover{color:var(--text);background:var(--border-hover)}
 
 /* ── Sidebar ── */
