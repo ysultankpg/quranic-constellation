@@ -450,7 +450,10 @@ document.getElementById("audio-seek").addEventListener("input",e=>{if(audio&&aud
 
 function updateFilterLabel(){
   let p=[];if(qc.activeTheme!==null)p.push(THEMES[qc.activeTheme].name);
-  if(qc.activeJuz>0)p.push("Juz "+qc.activeJuz);
+  if(qc.activeJuz>0){
+    var count=JUZ.filter(function(j){return j===qc.activeJuz;}).length;
+    p.push("Juz "+qc.activeJuz+" ("+count+" surahs)");
+  }
   if(qc.filteredSet)p.push(qc.filteredSet.size+" matches");
   filterLabel.textContent=p.length?"Filtering: "+p.join(" + "):"Showing all 114 surahs";
 }
