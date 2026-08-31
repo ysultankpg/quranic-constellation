@@ -196,7 +196,7 @@ function openSurahModal(i){
   /* Hide hamburger when modal is open */
   if(sidebarToggle)sidebarToggle.classList.add("modal-open");
 
-  let h=`<div class="sm-back-row"><button class="sm-back-btn" id="sm-back">&#8592; Back to Constellation</button><button class="sm-close-inline" id="sm-close-inline">&times;</button></div>
+  let h=`<div class="sm-back-row"><button class="sm-back-btn" id="sm-back">&#8592; Back to Constellation</button></div>
 <div class="sm-header"><div class="sm-num">${i+1}</div><div class="sm-arabic">${s[1]}</div></div>
 <div class="sm-name">${s[0]}</div>
 <div class="sm-meaning">${s[6]}</div>
@@ -226,7 +226,6 @@ function openSurahModal(i){
 
   /* Back button — return to constellation */
   document.getElementById("sm-back").addEventListener("click",()=>{closeSurahModal();});
-  document.getElementById("sm-close-inline").addEventListener("click",()=>{closeSurahModal();});
 
   /* Listen button: load audio + show player UI, but do NOT auto-play.
      User picks reciter first, then presses the play button. */
