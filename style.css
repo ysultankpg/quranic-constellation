@@ -11,18 +11,18 @@
   --gold:#FFD700;--canvas-bg:#080810;
   --search-bg:rgba(14,14,28,.96);--option-bg:#1a1a2e;
 }
-/* Light theme via class (overrides system preference) */
+/* Light theme — clean white/cream like portfolio light mode */
 html.theme-light{
-  --bg:#1a1030;--bg-alt:rgba(34,24,69,.92);--bg-panel:rgba(30,20,60,.85);--bg-modal:rgba(26,16,48,.98);
-  --text:#f0f0f8;--text-dim:#bbb;--text-muted:#888;--text-faint:#555;
-  --border:rgba(167,139,250,.12);--border-hover:rgba(167,139,250,.2);
-  --card-bg:rgba(40,28,75,.4);--card-border:rgba(167,139,250,.1);
-  --input-bg:rgba(40,28,75,.4);--input-border:rgba(167,139,250,.15);
-  --accent:#a78bfa;--accent-bg:rgba(167,139,250,.18);--accent-text:#c4b5fd;
-  --gold:#FFD700;--canvas-bg:#1a1030;
-  --search-bg:rgba(26,16,48,.96);--option-bg:#221845;
+  --bg:#f5f5f7;--bg-alt:rgba(255,255,255,.92);--bg-panel:rgba(255,255,255,.85);--bg-modal:rgba(255,255,255,.98);
+  --text:#1d1d1f;--text-dim:#555;--text-muted:#888;--text-faint:#bbb;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+  --card-bg:rgba(0,0,0,.03);--card-border:rgba(0,0,0,.06);
+  --input-bg:rgba(0,0,0,.04);--input-border:rgba(0,0,0,.1);
+  --accent:#6C3FC5;--accent-bg:rgba(108,63,197,.12);--accent-text:#6C3FC5;
+  --gold:#C8860A;--canvas-bg:#f5f5f7;
+  --search-bg:rgba(255,255,255,.96);--option-bg:#ffffff;
 }
-/* Dark theme via class (force dark even if system is light) */
+/* Dark theme — deep space */
 html.theme-dark{
   --bg:#080810;--bg-alt:rgba(8,8,16,.92);--bg-panel:rgba(8,8,16,.75);--bg-modal:rgba(14,14,28,.98);
   --text:#e0e0ec;--text-dim:#999;--text-muted:#666;--text-faint:#444;
@@ -36,16 +36,20 @@ html.theme-dark{
 /* System preference — only when no class override */
 @media(prefers-color-scheme:light){
   html:not(.theme-dark):not(.theme-light){
-    --bg:#1a1030;--bg-alt:rgba(34,24,69,.92);--bg-panel:rgba(30,20,60,.85);--bg-modal:rgba(26,16,48,.98);
-    --text:#f0f0f8;--text-dim:#bbb;--text-muted:#888;--text-faint:#555;
-    --border:rgba(167,139,250,.12);--border-hover:rgba(167,139,250,.2);
-    --card-bg:rgba(40,28,75,.4);--card-border:rgba(167,139,250,.1);
-    --input-bg:rgba(40,28,75,.4);--input-border:rgba(167,139,250,.15);
-    --accent:#a78bfa;--accent-bg:rgba(167,139,250,.18);--accent-text:#c4b5fd;
-    --gold:#FFD700;--canvas-bg:#1a1030;
-    --search-bg:rgba(26,16,48,.96);--option-bg:#221845;
+    --bg:#f5f5f7;--bg-alt:rgba(255,255,255,.92);--bg-panel:rgba(255,255,255,.85);--bg-modal:rgba(255,255,255,.98);
+    --text:#1d1d1f;--text-dim:#555;--text-muted:#888;--text-faint:#bbb;
+    --border:rgba(0,0,0,.08);--border-hover:rgba(0,0,0,.15);
+    --card-bg:rgba(0,0,0,.03);--card-border:rgba(0,0,0,.06);
+    --input-bg:rgba(0,0,0,.04);--input-border:rgba(0,0,0,.1);
+    --accent:#6C3FC5;--accent-bg:rgba(108,63,197,.12);--accent-text:#6C3FC5;
+    --gold:#C8860A;--canvas-bg:#f5f5f7;
+    --search-bg:rgba(255,255,255,.96);--option-bg:#ffffff;
   }
 }
+
+/* Light theme title adjustment */
+html.theme-light .header-title h1{background:linear-gradient(135deg,#6C3FC5,#8B5CF6,#6C3FC5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 8px rgba(108,63,197,.2))}
+html.theme-light .logo-icon{color:#6C3FC5;filter:drop-shadow(0 0 10px rgba(108,63,197,.4))}
 
 body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",system-ui,sans-serif;overflow:hidden;height:100vh;height:100dvh;width:100vw}
 #app{position:relative;width:100%;height:100%}
@@ -56,6 +60,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .logo-icon{font-size:32px;color:var(--gold);filter:drop-shadow(0 0 10px rgba(255,215,0,.5))}
 .header-title h1{font-size:32px;font-weight:800;letter-spacing:.5px;background:linear-gradient(135deg,#FFD700,#FFA500,#FFD700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 8px rgba(255,215,0,.25));white-space:nowrap}
 .tagline{font-size:12px;color:var(--text-dim);margin-top:2px;letter-spacing:.8px;text-align:center}
+.header-guide{font-size:11px;color:var(--text-muted);margin-top:2px;letter-spacing:.3px;text-align:center}
 .header-search{position:relative;flex:0 1 220px;z-index:2}
 #search{width:100%;padding:6px 12px;border-radius:8px;border:1px solid var(--input-border);background:var(--input-bg);color:var(--text);font-size:12px;outline:none;transition:border-color .2s}
 #search:focus{border-color:rgba(74,158,255,.4)}
@@ -77,9 +82,6 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 /* Mobile caveat banner — hidden on desktop */
 #mobile-caveat{display:none;text-align:center;font-size:10px;color:var(--text-muted);padding:4px 0;background:var(--bg-alt);border-bottom:1px solid var(--border);letter-spacing:.5px;flex-shrink:0}
 
-/* Guide hint bar — below header */
-#guide-bar{text-align:center;font-size:13px;color:var(--text-dim);padding:6px 0;background:var(--bg-alt);border-bottom:1px solid var(--border);letter-spacing:.4px;flex-shrink:0;position:absolute;top:50px;left:190px;right:0;z-index:10}
-
 #sidebar-toggle.modal-open{display:none !important}
 
 /* Sidebar toggle (mobile) */
@@ -87,7 +89,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 #sidebar-toggle:hover{color:var(--text);background:var(--border-hover)}
 
 /* ── Sidebar ── */
-#sidebar{position:absolute;top:78px;left:0;bottom:36px;width:190px;z-index:15;padding:14px;overflow-y:auto;background:var(--bg-panel);backdrop-filter:blur(12px);border-right:1px solid var(--border);transition:transform .25s ease}
+#sidebar{position:absolute;top:50px;left:0;bottom:36px;width:190px;z-index:15;padding:14px;overflow-y:auto;background:var(--bg-panel);backdrop-filter:blur(12px);border-right:1px solid var(--border);transition:transform .25s ease}
 .stat-cards{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:16px}
 .stat-card{background:var(--card-bg);border-radius:10px;padding:10px 8px;text-align:center;border:1px solid var(--card-border)}
 .stat-val{font-size:20px;font-weight:700;color:var(--text)}
@@ -107,7 +109,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .guide-line{width:22px;height:1px;background:rgba(100,140,255,.3)}
 
 /* ── Canvas ── */
-#constellation{position:absolute;top:78px;left:190px;right:0;bottom:36px;cursor:crosshair}
+#constellation{position:absolute;top:50px;left:190px;right:0;bottom:36px;cursor:crosshair}
 
 /* ── Tooltip ── */
 #tooltip{position:absolute;z-index:25;pointer-events:none;background:var(--bg-modal);backdrop-filter:blur(14px);border:1px solid var(--border);border-radius:10px;padding:10px 14px;font-size:12px;line-height:1.5;min-width:180px;max-width:240px;box-shadow:0 8px 32px rgba(0,0,0,.3)}
@@ -229,12 +231,14 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 #audio-time{font-size:10px;color:var(--text-muted);min-width:36px}
 #audio-close{font-size:16px}
 
-/* ── Info Bar ── */
-#info-bar{position:absolute;bottom:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;padding:8px 20px;font-size:10px;color:var(--text-muted);background:var(--bg-alt)}
+/* ── Info Bar / Footer ── */
+#info-bar{position:absolute;bottom:0;left:0;right:0;z-index:10;display:flex;justify-content:center;align-items:center;padding:8px 20px;font-size:12px;color:var(--text-muted);background:var(--bg-alt);gap:0}
 #info-bar.pushed-up{bottom:44px}
-.info-credit{color:var(--text-faint)}
-.info-credit a{color:var(--accent-text);text-decoration:none;transition:color .2s}
+#filter-label{position:absolute;left:20px}
+.info-credit{font-size:12px;color:var(--text-dim)}
+.info-credit a{color:var(--accent-text);text-decoration:none;font-weight:600;transition:color .2s}
 .info-credit a:hover{color:var(--accent);text-decoration:underline}
+.info-spacer{position:absolute;right:20px;width:1px}
 
 /* ══════════════════════════════
    Mobile Responsive (< 768px)
@@ -255,9 +259,6 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
   #app{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden}
   #header{position:relative !important;flex-shrink:0}
   #mobile-caveat{display:block}
-
-  /* Guide bar: relative on mobile, smaller */
-  #guide-bar{position:relative !important;top:auto !important;left:0 !important;right:auto !important;font-size:11px;flex-shrink:0}
 
   /* Sidebar: hidden off-screen by default, toggled via JS */
   #sidebar{transform:translateX(-100%);width:220px;top:0 !important;bottom:0 !important;padding-top:70px;z-index:9998;transition:transform .25s ease;position:fixed}

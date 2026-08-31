@@ -19,7 +19,7 @@ function resize(){
     H=canvas.clientHeight||(window.innerHeight-headerH);
   }else{
     W=window.innerWidth-sidebarW;
-    H=window.innerHeight-headerH-36-28;
+    H=window.innerHeight-headerH-36;
   }
   if(W<200)W=200;if(H<200)H=200;
   canvas.width=W*dpr;canvas.height=H*dpr;
