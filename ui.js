@@ -196,7 +196,7 @@ function openSurahModal(i){
   /* Hide hamburger when modal is open */
   if(sidebarToggle)sidebarToggle.classList.add("modal-open");
 
-  let h=`<div class="sm-back-row"><button class="sm-back-btn" id="sm-back">&#8592; Back to Constellation</button></div>
+  let h=`<div class="sm-back-row"><button class="sm-back-btn" id="sm-back">&#8592; Back</button></div>
 <div class="sm-header"><div class="sm-num">${i+1}</div><div class="sm-arabic">${s[1]}</div></div>
 <div class="sm-name">${s[0]}</div>
 <div class="sm-meaning">${s[6]}</div>
@@ -348,7 +348,7 @@ function openReader(i){
   if(sidebarToggle)sidebarToggle.classList.add("modal-open");
   /* Add back button to reader header */
   var readerTitle=document.getElementById("reader-title");
-  readerTitle.innerHTML=`<button class="sm-back-btn" id="reader-back">&#8592; Back to Constellation</button><span style="color:#FFD700;margin-left:12px">${s[1]}</span> ${i+1}. ${s[0]} — ${s[6]}`;
+  readerTitle.innerHTML=`<button class="sm-back-btn" id="reader-back">&#8592; Back</button><span style="color:#FFD700;margin-left:12px">${s[1]}</span> ${i+1}. ${s[0]} — ${s[6]}`;
   document.getElementById("reader-loading").textContent="Loading surah...";
   document.getElementById("reader-loading").classList.remove("hidden");
   document.getElementById("reader-content").classList.add("hidden");
