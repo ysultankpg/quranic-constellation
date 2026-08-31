@@ -455,13 +455,13 @@ function updateFilterLabel(){
   filterLabel.textContent=p.length?"Filtering: "+p.join(" + "):"Showing all 114 surahs";
 }
 
-/* ── Theme toggle (light / dark / system) ── */
+/* ── Theme toggle (light / dark) ── */
 (function(){
-  var saved=localStorage.getItem("buruj-theme")||"system";
+  var saved=localStorage.getItem("buruj-theme")||"dark";
   function applyTheme(t){
     document.documentElement.classList.remove("theme-light","theme-dark");
     if(t==="light")document.documentElement.classList.add("theme-light");
-    else if(t==="dark")document.documentElement.classList.add("theme-dark");
+    else document.documentElement.classList.add("theme-dark");
     /* Update canvas bg */
     var cs=getComputedStyle(document.documentElement);
     var canvasBg=cs.getPropertyValue("--canvas-bg").trim();
